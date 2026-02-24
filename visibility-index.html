@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visibility Index - Uncle Earnie</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+      <div class="sidebar-inner">
+        <div class="sidebar-brand">
+          <h2>Uncle Earnie</h2>
+          <p>Financial Education</p>
+        </div>
+        <nav>
+          <ul class="sidebar-nav">
+            <li><a href="index.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+              <span>Home</span>
+            </a></li>
+            <li><a href="profile.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span>Profile</span>
+            </a></li>
+            <li><a href="wallet.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12h.01"/></svg>
+              <span>Wallet</span>
+            </a></li>
+            <li><a href="finances.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M7 15h10"/><path d="M7 11h10"/><path d="M7 7h6"/></svg>
+              <span>Finances</span>
+            </a></li>
+            <li><a href="insights.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+              <span>Insights</span>
+            </a></li>
+            <li><a href="visibility-index.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span>Visibility Index</span>
+            </a></li>
+            <li><a href="budgeting.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
+              <span>Budgeting</span>
+            </a></li>
+            <li><a href="kiwisaver.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2h0V5z"/><circle cx="13" cy="12" r="1"/></svg>
+              <span>KiwiSaver</span>
+            </a></li>
+            <li><a href="net-worth-calculator.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="15" y1="12" x2="15" y2="12.01"/></svg>
+              <span>Net Worth</span>
+            </a></li>
+            <li><a href="goals.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>Goals</span>
+            </a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <div class="topbar">
+        <div class="topbar-left">
+          <button class="btn-icon menu-toggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="topbar-right">
+          <div class="visibility-points">
+            <span>Visibility Points: <strong data-visibility-points>150</strong></span>
+          </div>
+          <button class="btn-icon daily-bonus-trigger" aria-label="Daily Bonus Game" title="Match numbers to win Visibility Points!">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </button>
+          <img src="assets/avatar.svg" alt="User avatar" class="user-avatar">
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <!-- Page Header -->
+        <header style="margin-bottom: var(--space-2xl);">
+          <h1 style="margin-bottom: var(--space-sm);">The Visibility Index</h1>
+          <p class="text-secondary" style="font-size: var(--font-size-lg); max-width: 600px; margin-bottom: var(--space-lg);">
+            Know how you make decisions when things get uncertain.
+          </p>
+          <p style="max-width: 700px; margin-bottom: var(--space-md);">
+            Earnie runs short interactive scenarios that simulate uncertainty and volatility, then turns your behaviour into a simple score and personalised insights.
+          </p>
+          <p class="text-secondary" style="font-size: 13px;">
+            Not financial advice. Not a personality test. Built to help you understand your decision patterns.
+          </p>
+        </header>
+
+        <!-- What is the Visibility Index? -->
+        <section style="margin-bottom: var(--space-2xl);">
+          <h2 style="margin-bottom: var(--space-lg);">What is the Visibility Index?</h2>
+          <p style="max-width: 700px; margin-bottom: var(--space-lg);">
+            The Visibility Index is a measure of decision clarity and steadiness under stress. Most tools ask what you think you would do. Earnie observes what you actually do when decisions feel real.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg); max-width: 800px;">
+            <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md);">
+              <div style="font-weight: 600; margin-bottom: 6px;">Incomplete information</div>
+              <p class="text-secondary" style="font-size: 13px; margin: 0;">You do not have all the data you want.</p>
+            </div>
+            <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md);">
+              <div style="font-weight: 600; margin-bottom: 6px;">Changing conditions</div>
+              <p class="text-secondary" style="font-size: 13px; margin: 0;">Things shift between your choices.</p>
+            </div>
+            <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md);">
+              <div style="font-weight: 600; margin-bottom: 6px;">Time pressure and noise</div>
+              <p class="text-secondary" style="font-size: 13px; margin: 0;">Speed and distraction matter.</p>
+            </div>
+            <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md);">
+              <div style="font-weight: 600; margin-bottom: 6px;">Wins, losses, setbacks</div>
+              <p class="text-secondary" style="font-size: 13px; margin: 0;">Real outcomes change the pressure.</p>
+            </div>
+          </div>
+
+          <p style="max-width: 700px;">
+            Then Earnie gives you a clear breakdown of your decision style.
+          </p>
+        </section>
+
+        <!-- What You Get -->
+        <section style="margin-bottom: var(--space-2xl);">
+          <h2 style="margin-bottom: var(--space-lg);">What you get</h2>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg);">
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">Your Visibility Index score</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                A simple number that reflects how clearly and consistently you make decisions under uncertainty.
+              </p>
+            </div>
+
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">A breakdown of your strengths</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                Where you stay calm, focused, and consistent.
+              </p>
+            </div>
+
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">The moments that trip you up</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                Patterns like switching too fast, freezing, or overcorrecting after a setback.
+              </p>
+            </div>
+
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">Practical levers to improve</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                Simple actions to lift your score over time.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Your Results -->
+        <section style="margin-bottom: var(--space-2xl); padding: var(--space-2xl); background: var(--accent-muted); border: 1px solid rgba(134, 239, 172, 0.3); border-radius: var(--radius-lg);">
+          <div style="margin-bottom: var(--space-lg);">
+            <h2 style="margin-bottom: var(--space-sm);">Your Visibility Index</h2>
+          </div>
+
+          <!-- Score Card -->
+          <div class="card glass-heavy" style="margin-bottom: var(--space-lg); padding: var(--space-2xl); text-align: center;">
+            <p class="text-secondary" style="margin-bottom: var(--space-sm);">Your Score</p>
+            <div style="font-size: 52px; font-weight: 800; color: var(--accent-primary); margin-bottom: var(--space-md);">72</div>
+            <div style="display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;">
+              <div>
+                <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Trend</p>
+                <p style="font-weight: 600; color: var(--accent-primary);">+4 this week</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Confidence</p>
+                <p style="font-weight: 600;">High (46 decisions)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decision Pillars -->
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="margin-bottom: var(--space-md); font-size: 16px;">Your decision pillars</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);">
+              <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md); border-left: 4px solid var(--accent-primary);">
+                <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Decision Clarity</p>
+                <div style="font-size: 32px; font-weight: 700; margin-bottom: 4px;">68</div>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Steady</p>
+              </div>
+
+              <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md); border-left: 4px solid #86efac;">
+                <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Steadiness Under Pressure</p>
+                <div style="font-size: 32px; font-weight: 700; margin-bottom: 4px; color: #86efac;">79</div>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Strong</p>
+              </div>
+
+              <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md); border-left: 4px solid #fbbf24;">
+                <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Confidence Calibration</p>
+                <div style="font-size: 32px; font-weight: 700; margin-bottom: 4px; color: #fbbf24;">61</div>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Developing</p>
+              </div>
+
+              <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md); border-left: 4px solid #86efac;">
+                <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Resilience Style</p>
+                <div style="font-size: 32px; font-weight: 700; margin-bottom: 4px; color: #86efac;">80</div>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Strong</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Your Insights -->
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="margin-bottom: var(--space-md); font-size: 16px;">Your insights</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+              <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md);">
+                <p style="margin: 0; font-size: 14px;">You stay steady when conditions change, but you switch strategies quickly after early wins.</p>
+              </div>
+              <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md);">
+                <p style="margin: 0; font-size: 14px;">After a setback, you reset well and continue rather than freezing.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- What Shaped Your Score -->
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="margin-bottom: var(--space-md); font-size: 16px;">What shaped your score</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+              <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-md);">
+                <div style="min-width: 24px; width: 24px; height: 24px; border-radius: 50%; background: #86efac; display: flex; align-items: center; justify-content: center; color: #0a0f0d; font-weight: 700; font-size: 12px;">+</div>
+                <div>
+                  <p style="margin: 0; font-size: 14px; font-weight: 600;">Mortgage Maze</p>
+                  <p class="text-secondary" style="margin: 0; font-size: 12px;">Held your plan through rate shocks (+2 Steadiness)</p>
+                </div>
+              </div>
+
+              <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-md);">
+                <div style="min-width: 24px; width: 24px; height: 24px; border-radius: 50%; background: #ef4444; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 12px;">-</div>
+                <div>
+                  <p style="margin: 0; font-size: 14px; font-weight: 600;">Millennium Portfolio</p>
+                  <p class="text-secondary" style="margin: 0; font-size: 12px;">Changed allocation 5 times after a dip (-3 Clarity)</p>
+                </div>
+              </div>
+
+              <div style="padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-md);">
+                <div style="min-width: 24px; width: 24px; height: 24px; border-radius: 50%; background: #fbbf24; display: flex; align-items: center; justify-content: center; color: #0a0f0d; font-weight: 700; font-size: 12px;">-</div>
+                <div>
+                  <p style="margin: 0; font-size: 14px; font-weight: 600;">Risk Game</p>
+                  <p class="text-secondary" style="margin: 0; font-size: 12px;">Answered faster under pressure, accuracy dropped (-1 Calibration)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Lever Card -->
+          <div class="card glass-heavy">
+            <h3 class="card-title" style="margin-bottom: var(--space-md);">Your next lever</h3>
+            <p style="margin-bottom: var(--space-lg);">Delay strategy changes by one decision cycle. When you feel the urge to switch, wait for the next round before deciding.</p>
+            <a href="games.html" class="btn btn-primary">Play a scenario to practise this</a>
+          </div>
+        </section>
+
+        <!-- How It Works -->
+        <section style="margin-bottom: var(--space-2xl);">
+          <h2 style="margin-bottom: var(--space-lg);">How it works</h2>
+          
+          <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+            <div style="display: flex; gap: var(--space-lg);">
+              <div style="min-width: 48px; width: 48px; height: 48px; border-radius: 50%; background: var(--accent-muted); border: 2px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent-primary); flex-shrink: 0;">1</div>
+              <div>
+                <h3 style="margin: 0 0 var(--space-sm) 0; font-size: 18px;">Play through a few scenarios</h3>
+                <p class="text-secondary" style="margin: 0; max-width: 600px;">Short, interactive choices. No trick questions.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: var(--space-lg);">
+              <div style="min-width: 48px; width: 48px; height: 48px; border-radius: 50%; background: var(--accent-muted); border: 2px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent-primary); flex-shrink: 0;">2</div>
+              <div>
+                <h3 style="margin: 0 0 var(--space-sm) 0; font-size: 18px;">Earnie measures behaviour, not opinions</h3>
+                <p class="text-secondary" style="margin: 0; max-width: 600px;">Things like how long you take to decide, how often you switch strategies, and how you respond to shocks.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: var(--space-lg);">
+              <div style="min-width: 48px; width: 48px; height: 48px; border-radius: 50%; background: var(--accent-muted); border: 2px solid var(--accent-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent-primary); flex-shrink: 0;">3</div>
+              <div>
+                <h3 style="margin: 0 0 var(--space-sm) 0; font-size: 18px;">Get your results instantly</h3>
+                <p class="text-secondary" style="margin: 0; max-width: 600px;">Your score, your breakdown, and your next best step.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-secondary" style="margin-top: var(--space-lg); font-size: 13px;">
+            You can repeat sessions to track progress. The goal is improvement, not judgement.
+          </p>
+        </section>
+
+        <!-- What Earnie Measures -->
+        <section style="margin-bottom: var(--space-2xl);">
+          <h2 style="margin-bottom: var(--space-lg);">What Earnie measures</h2>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg);">
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">Decision Clarity</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                How you make choices when you do not have the full picture.
+              </p>
+            </div>
+
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">Steadiness Under Pressure</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                What you do when things change fast or feel uncomfortable.
+              </p>
+            </div>
+
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">Confidence Calibration</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                Whether your confidence matches outcomes over time.
+              </p>
+            </div>
+
+            <div class="card glass-medium">
+              <h3 class="card-title" style="margin-bottom: var(--space-sm);">Resilience Style</h3>
+              <p class="text-secondary" style="font-size: 14px; margin: 0;">
+                How you respond after setbacks: reset, overcorrect, freeze, or reframe and continue.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why This Matters -->
+        <section>
+          <h2 style="margin-bottom: var(--space-lg);">Why this matters</h2>
+          
+          <div style="margin-bottom: var(--space-lg);">
+            <p style="max-width: 700px; font-size: 18px; font-weight: 600; margin-bottom: var(--space-md);">
+              Stress changes behaviour. Lots of people have a plan until things get noisy.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-lg);">
+              <div style="display: flex; gap: var(--space-md);">
+                <div style="min-width: 24px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-primary); flex-shrink: 0; margin-top: 2px;"></div>
+                <p style="margin: 0;">Understand your default reactions</p>
+              </div>
+              <div style="display: flex; gap: var(--space-md);">
+                <div style="min-width: 24px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-primary); flex-shrink: 0; margin-top: 2px;"></div>
+                <p style="margin: 0;">Build a strategy you can stick to</p>
+              </div>
+              <div style="display: flex; gap: var(--space-md);">
+                <div style="min-width: 24px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-primary); flex-shrink: 0; margin-top: 2px;"></div>
+                <p style="margin: 0;">Improve decision habits with practice</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: var(--space-lg); background: var(--glass-light); border-left: 4px solid var(--accent-primary); border-radius: var(--radius-md);">
+            <p style="margin: 0; font-size: 14px;">
+              This is designed to support better decision making. It does not predict returns and does not replace professional advice.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/gauge.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/dailyBonus.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

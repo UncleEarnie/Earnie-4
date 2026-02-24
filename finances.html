@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finances - Uncle Earnie</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+      <div class="sidebar-inner">
+        <div class="sidebar-brand">
+          <h2>Uncle Earnie</h2>
+          <p>Financial Education</p>
+        </div>
+        <nav>
+          <ul class="sidebar-nav">
+            <li><a href="index.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+              <span>Home</span>
+            </a></li>
+            <li><a href="profile.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span>Profile</span>
+            </a></li>
+            <li><a href="wallet.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12h.01"/></svg>
+              <span>Wallet</span>
+            </a></li>
+            <li><a href="finances.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M7 15h10"/><path d="M7 11h10"/><path d="M7 7h6"/></svg>
+              <span>Finances</span>
+            </a></li>
+            <li><a href="insights.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+              <span>Insights</span>
+            </a></li>
+            <li><a href="visibility-index.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span>Visibility Index</span>
+            </a></li>
+            <li><a href="budgeting.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
+              <span>Budgeting</span>
+            </a></li>
+            <li><a href="kiwisaver.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2h0V5z"/><circle cx="13" cy="12" r="1"/></svg>
+              <span>KiwiSaver</span>
+            </a></li>
+            <li><a href="net-worth-calculator.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="15" y1="12" x2="15" y2="12.01"/></svg>
+              <span>Net Worth</span>
+            </a></li>
+            <li><a href="goals.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>Goals</span>
+            </a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <div class="topbar">
+        <div class="topbar-left">
+          <button class="btn-icon menu-toggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="topbar-right">
+          <div class="visibility-points">
+            <span>Visibility Points: <strong data-visibility-points>150</strong></span>
+          </div>
+          <button class="btn-icon daily-bonus-trigger" aria-label="Daily Bonus Game" title="Match numbers to win Visibility Points!">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </button>
+          <img src="assets/avatar.svg" alt="User avatar" class="user-avatar">
+        </div>
+      </div>
+
+      <div class="content-wrapper">
+        <!-- Net Worth Header -->
+        <section class="card glass-heavy" style="margin-bottom: var(--space-xl);">
+          <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+            <div>
+              <h1 style="font-size: 36px; margin-bottom: 8px;">Finances</h1>
+              <p class="text-secondary" style="margin: 0;">A complete view of your money, across accounts and platforms.</p>
+            </div>
+
+            <div class="card glass-medium" style="padding: var(--space-xl);">
+              <div class="net-worth-header">
+                <div>
+                  <p class="text-secondary" style="margin-bottom: 6px;">Total Net Worth</p>
+                  <div class="net-worth-value">$<span id="net-worth-total">0</span></div>
+                  <div class="net-worth-meta">
+                    <span id="net-worth-change"></span>
+                    <span>·</span>
+                    <span id="net-worth-updated"></span>
+                  </div>
+                </div>
+                <div class="net-worth-badge" id="net-worth-coverage">Accounts connected: 0</div>
+              </div>
+              <div id="net-worth-breakdown" class="chip-row"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Snapshot Cards -->
+        <section class="snapshot-grid" id="snapshot-grid"></section>
+
+        <!-- Charts Section -->
+        <section class="card glass-medium" id="charts" style="margin-bottom: var(--space-xl);">
+          <div class="section-header">
+            <div>
+              <h2 style="margin-bottom: 4px;">Trends and progress</h2>
+              <p class="text-secondary" style="margin: 0;">Simulated insights based on connected account activity.</p>
+            </div>
+            <div class="range-toggle">
+              <button class="range-btn" data-range="1M">1M</button>
+              <button class="range-btn active" data-range="6M">6M</button>
+              <button class="range-btn" data-range="1Y">1Y</button>
+              <button class="range-btn" data-range="All">All</button>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="chart-card">
+              <h3>Net worth over time</h3>
+              <div class="chart-container">
+                <canvas id="net-worth-chart" aria-label="Net worth over time"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3>Net worth composition</h3>
+              <div class="chart-container">
+                <canvas id="composition-chart" aria-label="Net worth composition"></canvas>
+              </div>
+            </div>
+            <div class="chart-card chart-span">
+              <h3>Cashflow (last 6 months)</h3>
+              <div class="chart-container">
+                <canvas id="cashflow-chart" aria-label="Cashflow chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Connected Accounts -->
+        <span id="cash-section"></span>
+        <span id="kiwisaver-section"></span>
+        <section class="card glass-medium" id="accounts" style="margin-bottom: var(--space-xl);">
+          <div class="section-header">
+            <div>
+              <h2 style="margin-bottom: 4px;">Connected accounts</h2>
+              <p class="text-secondary" style="margin: 0;">Read-only connections with simulated balances.</p>
+            </div>
+            <button class="btn btn-secondary" id="connect-more-btn">Connect more</button>
+          </div>
+          <div id="accounts-list" class="accounts-list"></div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="card glass-medium" id="activity" style="margin-bottom: var(--space-xl);">
+          <div class="section-header">
+            <div>
+              <h2 style="margin-bottom: 4px;">What changed</h2>
+              <p class="text-secondary" style="margin: 0;">Recent activity across your connected accounts.</p>
+            </div>
+          </div>
+          <div class="filter-row">
+            <button class="filter-btn active" data-activity-filter="all">All</button>
+            <button class="filter-btn" data-activity-filter="income">Income</button>
+            <button class="filter-btn" data-activity-filter="spending">Spending</button>
+            <button class="filter-btn" data-activity-filter="transfers">Transfers</button>
+            <button class="filter-btn" data-activity-filter="investing">Investing</button>
+          </div>
+          <div id="activity-list" class="activity-list"></div>
+        </section>
+
+        <!-- Drill-down Sections -->
+        <span id="savings-section"></span>
+        <section class="drilldown-grid">
+          <details class="card glass-medium" open id="spending-section">
+            <summary>Spending breakdown</summary>
+            <div class="drilldown-content">
+              <div class="chart-container small">
+                <canvas id="spending-chart" aria-label="Spending breakdown"></canvas>
+              </div>
+              <ul class="breakdown-list">
+                <li><span>Groceries</span><strong>$620</strong></li>
+                <li><span>Housing</span><strong>$980</strong></li>
+                <li><span>Transport</span><strong>$420</strong></li>
+                <li><span>Bills</span><strong>$360</strong></li>
+                <li><span>Dining</span><strong>$310</strong></li>
+                <li><span>Other</span><strong>$270</strong></li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="card glass-medium" open id="investments-section">
+            <summary>Investments overview</summary>
+            <div class="drilldown-content">
+              <div id="holdings-list" class="holdings-list"></div>
+            </div>
+          </details>
+
+          <details class="card glass-medium" open id="mortgage-section">
+            <summary>Mortgage overview</summary>
+            <div class="drilldown-content">
+              <div class="mortgage-grid">
+                <div>
+                  <div class="mortgage-label">Remaining balance</div>
+                  <div class="mortgage-value" id="mortgage-balance"></div>
+                </div>
+                <div>
+                  <div class="mortgage-label">Rate</div>
+                  <div class="mortgage-value" id="mortgage-rate"></div>
+                </div>
+                <div>
+                  <div class="mortgage-label">Next payment</div>
+                  <div class="mortgage-value" id="mortgage-payment"></div>
+                </div>
+                <div>
+                  <div class="mortgage-label">Term</div>
+                  <div class="mortgage-value" id="mortgage-term"></div>
+                </div>
+                <div>
+                  <div class="mortgage-label">Projected payoff</div>
+                  <div class="mortgage-value" id="mortgage-payoff"></div>
+                </div>
+              </div>
+              <p class="text-secondary" style="margin-top: 12px;">Projection is a simple estimate based on current payment settings.</p>
+            </div>
+          </details>
+        </section>
+
+        <p class="text-secondary" style="margin-top: var(--space-xl); font-size: 13px;">
+          Demo data only. In the full product this would be powered by open banking and other integrations. Earnie is read-only and cannot move money.
+        </p>
+        <a href="#" id="reset-demo-data" class="text-secondary" style="font-size: 13px; display: inline-block; margin-top: 8px;">Reset demo data</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Connect Modal -->
+  <div class="modal-overlay" id="connect-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Connect a provider</h3>
+        <button class="btn-icon" id="connect-modal-close" aria-label="Close connect modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <p class="text-secondary" style="margin-bottom: var(--space-lg);">Choose a provider to simulate a new connection.</p>
+      <div class="provider-list">
+        <div class="provider-row">
+          <div>
+            <div class="provider-name">ASB</div>
+            <div class="provider-meta">Everyday account</div>
+          </div>
+          <button class="btn btn-secondary" data-connect-provider="ASB" data-connect-account="Everyday">Connect</button>
+        </div>
+        <div class="provider-row">
+          <div>
+            <div class="provider-name">Westpac</div>
+            <div class="provider-meta">Savings account</div>
+          </div>
+          <button class="btn btn-secondary" data-connect-provider="Westpac" data-connect-account="Savings">Connect</button>
+        </div>
+        <div class="provider-row">
+          <div>
+            <div class="provider-name">Co-op Bank</div>
+            <div class="provider-meta">Credit card</div>
+          </div>
+          <button class="btn btn-secondary" data-connect-provider="Co-op Bank" data-connect-account="Visa Credit">Connect</button>
+        </div>
+        <div class="provider-row">
+          <div>
+            <div class="provider-name">Simplicity</div>
+            <div class="provider-meta">KiwiSaver provider</div>
+          </div>
+          <button class="btn btn-secondary" data-connect-provider="Simplicity" data-connect-account="KiwiSaver">Connect</button>
+        </div>
+        <div class="provider-row">
+          <div>
+            <div class="provider-name">Kernel</div>
+            <div class="provider-meta">Managed fund</div>
+          </div>
+          <button class="btn btn-secondary" data-connect-provider="Kernel" data-connect-account="Managed Fund">Connect</button>
+        </div>
+        <div class="provider-row">
+          <div>
+            <div class="provider-name">InvestNow</div>
+            <div class="provider-meta">Investment portfolio</div>
+          </div>
+          <button class="btn btn-secondary" data-connect-provider="InvestNow" data-connect-account="Portfolio">Connect</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="connect-modal-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/gauge.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/dailyBonus.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/financesDemoData.js"></script>
+  <script src="js/finances.js"></script>
+
+  <style>
+    .net-worth-header {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-md);
+    }
+
+    .net-worth-value {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    .net-worth-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .net-worth-badge {
+      background: rgba(134, 239, 172, 0.12);
+      border: 1px solid rgba(134, 239, 172, 0.3);
+      color: var(--accent-primary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--glass-light);
+      border: 1px solid var(--glass-border);
+      font-size: 12px;
+    }
+
+    .chip strong {
+      color: var(--text-primary);
+    }
+
+    .chip-negative strong {
+      color: #ef4444;
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .snapshot-card {
+      text-decoration: none;
+      color: inherit;
+      padding: var(--space-lg);
+      transition: transform 0.2s ease;
+    }
+
+    .snapshot-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .snapshot-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+    }
+
+    .snapshot-value {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent-primary);
+    }
+
+    .snapshot-note {
+      font-size: 12px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      align-items: center;
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .range-toggle {
+      display: inline-flex;
+      gap: 6px;
+      background: var(--glass-light);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+    }
+
+    .range-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .range-btn.active {
+      background: rgba(134, 239, 172, 0.15);
+      color: var(--accent-primary);
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .chart-card {
+      background: var(--glass-light);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      border: 1px solid var(--glass-border);
+    }
+
+    .chart-card h3 {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 220px;
+    }
+
+    .chart-container.small {
+      height: 200px;
+    }
+
+    .chart-span {
+      grid-column: span 2;
+    }
+
+    .accounts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .account-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      background: var(--glass-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .account-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(134, 239, 172, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    .account-details {
+      flex: 1;
+    }
+
+    .account-name {
+      font-weight: 600;
+    }
+
+    .account-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .account-balance {
+      font-weight: 700;
+    }
+
+    .amount-positive {
+      color: var(--accent-primary);
+    }
+
+    .amount-negative {
+      color: #ef4444;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-md);
+    }
+
+    .filter-btn {
+      background: var(--glass-light);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .filter-btn.active {
+      background: rgba(134, 239, 172, 0.15);
+      color: var(--accent-primary);
+    }
+
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .activity-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      background: var(--glass-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .activity-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .activity-details {
+      flex: 1;
+    }
+
+    .activity-title {
+      font-weight: 600;
+    }
+
+    .activity-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .drilldown-grid {
+      display: grid;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      list-style: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::after {
+      content: '▼';
+      float: right;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    details[open] summary::after {
+      content: '▲';
+    }
+
+    .drilldown-content {
+      margin-top: var(--space-md);
+    }
+
+    .breakdown-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .breakdown-list li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .holdings-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .holding-row {
+      display: flex;
+      justify-content: space-between;
+      background: var(--glass-light);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+    }
+
+    .holding-name {
+      font-weight: 600;
+    }
+
+    .holding-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .holding-value {
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    .mortgage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .mortgage-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .mortgage-value {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 13, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      width: 90%;
+      max-width: 520px;
+      background: var(--glass-strong, rgba(16, 22, 19, 0.95));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .provider-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .provider-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: var(--glass-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .provider-name {
+      font-weight: 600;
+    }
+
+    .provider-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: var(--space-lg);
+    }
+
+    @media (max-width: 900px) {
+      .chart-span {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .net-worth-header {
+        flex-direction: column;
+      }
+
+      .range-toggle {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</body>
+</html>
