@@ -37,59 +37,8 @@ function bindLaunchButtons() {
 
 // Bind hero image hover effects for game cards
 function bindHeroImageHovers() {
-  const gameImageMap = {
-    'veil-of-risk': 'Veil of Risk.png',
-    'kiwisaver-checkin': 'Kiwisaver check in.png',
-    'mortgage-maze': 'Mortgage maze.png',
-    'rate-shock-simulator': 'Rate shock simulator.png'
-  };
-  
-  const heroPanel = document.querySelector('.hero-panel');
-  if (!heroPanel) return;
-  
-  const heroTitle = heroPanel.querySelector('.hero-title');
-  const heroSubtitle = heroPanel.querySelector('.hero-subtitle');
-  const heroEyebrow = heroPanel.querySelector('.hero-eyebrow span');
-  
-  const originalBackground = 'hero.png';
-  const originalTitle = heroTitle?.textContent || '';
-  const originalSubtitle = heroSubtitle?.textContent || '';
-  const originalEyebrow = heroEyebrow?.textContent || '';
-  
-  // Get all game cards in the grid
-  const gameCards = document.querySelectorAll('[data-game-slug]');
-  gameCards.forEach(card => {
-    const gameSlug = card.getAttribute('data-game-slug');
-    
-    // Only add hover effects for games with images
-    if (gameImageMap[gameSlug]) {
-      card.addEventListener('mouseenter', () => {
-        // Update background image
-        heroPanel.style.backgroundImage = `url('${gameImageMap[gameSlug]}')`;
-        heroPanel.style.transition = 'background-image 0.3s ease-in-out';
-        
-        // Get game data and update hero text
-        const game = getGameBySlug(gameSlug);
-        if (game) {
-          if (heroEyebrow) heroEyebrow.textContent = game.category;
-          if (heroTitle) heroTitle.textContent = game.title;
-          if (heroSubtitle) heroSubtitle.textContent = game.subtitle;
-          
-          // Update button data attributes
-          const launchBtn = heroPanel.querySelector('[data-action="launch"]');
-          if (launchBtn) {
-            launchBtn.setAttribute('data-game-slug', game.slug);
-            launchBtn.setAttribute('data-game-title', game.title);
-          }
-        }
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        // Keep the current hero state (don't reset)
-        // This ensures the text stays until another game is hovered
-      });
-    }
-  });
+  // Disabled - hero image no longer switches on game hover
+  return;
 }
 
 // Handle game launch
