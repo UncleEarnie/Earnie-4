@@ -1319,9 +1319,16 @@ button {
 /* Action Cards on Hero */
 .action-buttons-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-md);
   margin-top: var(--space-lg);
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .action-buttons-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .action-card {
