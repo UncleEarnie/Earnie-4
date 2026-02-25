@@ -86,74 +86,265 @@
       <div class="content-wrapper">
         <!-- Page Header -->
         <header style="margin-bottom: var(--space-xl);">
-          <h1 style="margin-bottom: var(--space-sm);">KiwiSaver Settings</h1>
+          <h1 style="margin-bottom: var(--space-sm);">Switch Your KiwiSaver</h1>
           <p class="text-secondary" style="font-size: var(--font-size-lg); max-width: 600px;">
-            Choose the fund type that matches your retirement timeline and risk tolerance.
+            Review alternative funds and see if switching could help you reach your retirement goals.
           </p>
         </header>
 
-        <!-- Fund Selector -->
-        <div class="card glass-medium" style="margin-bottom: var(--space-lg);">
-          <h3 style="margin-bottom: var(--space-lg);">Select Your Fund Type</h3>
-          
-          <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-            <label style="display: flex; align-items: center; padding: var(--space-md); background: var(--glass-light); border: 2px solid transparent; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
-              <input type="radio" name="fund-type" value="conservative" style="margin-right: var(--space-md); accent-color: var(--accent-primary);">
-              <div>
-                <div style="font-weight: 600; margin-bottom: 4px;">Conservative</div>
-                <div class="text-secondary" style="font-size: 13px;">Mainly cash and bonds. Lower risk, lower returns.</div>
-              </div>
-            </label>
-
-            <label style="display: flex; align-items: center; padding: var(--space-md); background: var(--glass-light); border: 2px solid transparent; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
-              <input type="radio" name="fund-type" value="balanced" checked style="margin-right: var(--space-md); accent-color: var(--accent-primary);">
-              <div>
-                <div style="font-weight: 600; margin-bottom: 4px;">Balanced</div>
-                <div class="text-secondary" style="font-size: 13px;">Mix of growth and income assets. Medium risk.</div>
-              </div>
-            </label>
-
-            <label style="display: flex; align-items: center; padding: var(--space-md); background: var(--glass-light); border: 2px solid transparent; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
-              <input type="radio" name="fund-type" value="growth" style="margin-right: var(--space-md); accent-color: var(--accent-primary);">
-              <div>
-                <div style="font-weight: 600; margin-bottom: 4px;">Growth</div>
-                <div class="text-secondary" style="font-size: 13px;">Mainly shares and property. Higher risk, higher potential returns.</div>
-              </div>
-            </label>
-          </div>
-
-          <div style="margin-top: var(--space-xl); padding: var(--space-lg); background: var(--accent-muted); border: 1px solid rgba(134, 239, 172, 0.3); border-radius: var(--radius-md);">
-            <div style="font-weight: 600; color: var(--accent-primary); margin-bottom: 8px;">
-              Risk Level: <span id="risk-label">Medium Risk</span>
+        <!-- Current Fund Section -->
+        <div class="card glass-medium" style="margin-bottom: var(--space-2xl); padding: var(--space-lg); background: linear-gradient(135deg, rgba(134, 239, 172, 0.1) 0%, rgba(134, 239, 172, 0.05) 100%);">
+          <h3 style="margin-bottom: var(--space-lg); color: var(--accent-primary);">Your Current Fund</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+            <div>
+              <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Provider</p>
+              <p style="font-size: 18px; font-weight: 700; margin: 0;">ASB</p>
             </div>
-            <p id="risk-description" class="text-secondary" style="font-size: 14px; margin: 0;">
-              Balanced funds mix growth assets (shares, property) with income assets (cash, bonds). Good middle ground for most people.
-            </p>
+            <div>
+              <p class="text-secondary" style="font-size: 12px; margin-bottom: 4px;">Fund Type</p>
+              <p style="font-size: 18px; font-weight: 700; margin: 0;">Balanced</p>
+            </div>
+          </div>
+          <p class="text-secondary" style="font-size: 13px; margin-top: var(--space-lg); margin-bottom: 0;">
+            You've been with ASB Balanced for 4 years. This fund has delivered solid mid-range returns with moderate risk.
+          </p>
+        </div>
+
+        <!-- Earnie's Recommendation Box -->
+        <div class="card glass-medium" style="margin-bottom: var(--space-2xl); padding: var(--space-lg); border-left: 4px solid var(--accent-primary);">
+          <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+            <img src="earniepfp.png" alt="Uncle Earnie" style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid var(--accent-primary); flex-shrink: 0; object-fit: cover;">
+            <div style="flex: 1;">
+              <h4 style="margin: 0 0 8px 0; color: var(--accent-primary);">Uncle Earnie's Take</h4>
+              <p style="margin: 0; font-size: 14px; line-height: 1.5;">
+                Your Visibility Index score of 72 and strong steadiness under pressure suggest you can handle a bit more growth potential. I'd recommend looking at the <strong>Smartshares Growth ETF</strong> (better diversification) or <strong>Westpac Plus Growth</strong> (strong performance with managed risk). Both align well with your decision-making style.
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- Info Cards -->
-        <div style="display: grid; gap: var(--space-md);">
+        <!-- Fund Options Grid -->
+        <h3 style="margin-bottom: var(--space-lg);">Alternative Funds to Consider</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--space-lg);">
+          
+          <!-- Fund 1 -->
           <div class="card glass-medium">
-            <h4 style="margin-bottom: var(--space-sm);">When to Review</h4>
-            <p class="text-secondary" style="font-size: 14px; margin: 0;">
-              Review your KiwiSaver settings at least once a year, or when major life events occur such as changing jobs, getting married, or as you approach retirement.
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 style="margin: 0 0 4px 0;">Smartshares Growth ETF</h4>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Multi-provider</p>
+              </div>
+              <span style="background: var(--accent-primary); color: #0a0f0d; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">RECOMMENDED</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Annual Return (5yr)</p>
+                <p style="font-weight: 700; margin: 0;">8.2%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Fee</p>
+                <p style="font-weight: 700; margin: 0;">0.32%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Risk Level</p>
+                <p style="font-weight: 700; margin: 0;">Growth</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Equity %</p>
+                <p style="font-weight: 700; margin: 0;">75%</p>
+              </div>
+            </div>
+            
+            <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">
+              Broad global diversification at low cost. Aligns with your strong steadiness under pressure.
             </p>
+            
+            <button class="btn btn-primary" style="width: 100%;">Switch to this fund</button>
           </div>
 
+          <!-- Fund 2 -->
           <div class="card glass-medium">
-            <h4 style="margin-bottom: var(--space-sm);">Time Horizon Matters</h4>
-            <p class="text-secondary" style="font-size: 14px; margin: 0;">
-              If you are young with many years until retirement, you can typically afford to take more risk with growth funds. As you get closer to retirement, consider moving to more conservative options.
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 style="margin: 0 0 4px 0;">Westpac Plus Growth</h4>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Westpac</p>
+              </div>
+              <span style="background: var(--accent-primary); color: #0a0f0d; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">RECOMMENDED</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Annual Return (5yr)</p>
+                <p style="font-weight: 700; margin: 0;">7.9%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Fee</p>
+                <p style="font-weight: 700; margin: 0;">0.48%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Risk Level</p>
+                <p style="font-weight: 700; margin: 0;">Growth</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Equity %</p>
+                <p style="font-weight: 700; margin: 0;">70%</p>
+              </div>
+            </div>
+            
+            <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">
+              Managed growth with professional oversight. Great for those who want active management.
             </p>
+            
+            <button class="btn btn-primary" style="width: 100%;">Switch to this fund</button>
           </div>
 
+          <!-- Fund 3 -->
           <div class="card glass-medium">
-            <h4 style="margin-bottom: var(--space-sm);">Not Financial Advice</h4>
-            <p class="text-secondary" style="font-size: 14px; margin: 0;">
-              This tool is for educational purposes only. For personalized advice about your KiwiSaver, speak with a licensed financial adviser.
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 style="margin: 0 0 4px 0;">ANZ Growth</h4>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">ANZ Bank</p>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Annual Return (5yr)</p>
+                <p style="font-weight: 700; margin: 0;">7.5%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Fee</p>
+                <p style="font-weight: 700; margin: 0;">0.50%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Risk Level</p>
+                <p style="font-weight: 700; margin: 0;">Growth</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Equity %</p>
+                <p style="font-weight: 700; margin: 0;">72%</p>
+              </div>
+            </div>
+            
+            <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">
+              Solid all-rounder with consistent performance and reasonable fees.
             </p>
+            
+            <button class="btn btn-primary" style="width: 100%;">Switch to this fund</button>
           </div>
+
+          <!-- Fund 4 -->
+          <div class="card glass-medium">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 style="margin: 0 0 4px 0;">Kiwi Wealth Balanced</h4>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Kiwi Wealth</p>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Annual Return (5yr)</p>
+                <p style="font-weight: 700; margin: 0;">6.8%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Fee</p>
+                <p style="font-weight: 700; margin: 0;">0.35%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Risk Level</p>
+                <p style="font-weight: 700; margin: 0;">Balanced</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Equity %</p>
+                <p style="font-weight: 700; margin: 0;">50%</p>
+              </div>
+            </div>
+            
+            <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">
+              Similar to your current ASB, but with lower fees and comparable returns.
+            </p>
+            
+            <button class="btn btn-primary" style="width: 100%;">Switch to this fund</button>
+          </div>
+
+          <!-- Fund 5 -->
+          <div class="card glass-medium">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 style="margin: 0 0 4px 0;">BNZ Conservative</h4>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Bank of New Zealand</p>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Annual Return (5yr)</p>
+                <p style="font-weight: 700; margin: 0;">4.2%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Fee</p>
+                <p style="font-weight: 700; margin: 0;">0.40%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Risk Level</p>
+                <p style="font-weight: 700; margin: 0;">Conservative</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Equity %</p>
+                <p style="font-weight: 700; margin: 0;">20%</p>
+              </div>
+            </div>
+            
+            <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">
+              Capital preservation focused. Best for those nearing retirement or with low risk tolerance.
+            </p>
+            
+            <button class="btn btn-primary" style="width: 100%;">Switch to this fund</button>
+          </div>
+
+          <!-- Fund 6 -->
+          <div class="card glass-medium">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 style="margin: 0 0 4px 0;">Simplicity Aggressive</h4>
+                <p class="text-secondary" style="font-size: 12px; margin: 0;">Simplicity</p>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); padding: var(--space-md); background: var(--glass-light); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Annual Return (5yr)</p>
+                <p style="font-weight: 700; margin: 0;">8.7%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Fee</p>
+                <p style="font-weight: 700; margin: 0;">0.28%</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Risk Level</p>
+                <p style="font-weight: 700; margin: 0;">Aggressive</p>
+              </div>
+              <div>
+                <p class="text-secondary" style="font-size: 11px; margin-bottom: 4px;">Equity %</p>
+                <p style="font-weight: 700; margin: 0;">88%</p>
+              </div>
+            </div>
+            
+            <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">
+              Maximum growth potential with minimal fees. For confident, long-term investors.
+            </p>
+            
+            <button class="btn btn-primary" style="width: 100%;">Switch to this fund</button>
+          </div>
+        </div>
+
+        <!-- Info Section -->
+        <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md);">
+          <p class="text-secondary" style="font-size: 13px; margin: 0;">
+            <strong>Disclaimer:</strong> This is for educational purposes only. Switching funds may have tax implications. Consult a licensed financial adviser for personalized advice about your KiwiSaver strategy.
+          </p>
         </div>
       </div>
     </main>
@@ -172,6 +363,18 @@
   <script src="js/dailyBonus.js"></script>
   <script src="js/app.js"></script>
   
+  <!-- Fund Switch Modal -->
+  <div id="fund-switch-modal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center; z-index: 1000;">
+    <div class="card glass-heavy" style="max-width: 400px; padding: var(--space-2xl); text-align: center;">
+      <div style="font-size: 48px; margin-bottom: var(--space-lg);">✓</div>
+      <h2 style="margin-bottom: var(--space-md); color: var(--accent-primary);">Thank you for switching funds</h2>
+      <p class="text-secondary" style="margin-bottom: var(--space-lg); font-size: 14px;">
+        Your fund switch has been initiated. It typically takes 1-2 business days to process.
+      </p>
+      <button id="close-modal-btn" class="btn btn-primary" style="width: 100%;">Got it</button>
+    </div>
+  </div>
+  
   <style>
     input[type="radio"]:checked + div {
       color: var(--accent-primary);
@@ -181,5 +384,29 @@
       background: var(--accent-muted) !important;
     }
   </style>
+
+  <script>
+    // Handle fund switch buttons
+    document.querySelectorAll('.btn-primary').forEach(button => {
+      if (button.textContent.includes('Switch to this fund')) {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('fund-switch-modal').style.display = 'flex';
+        });
+      }
+    });
+
+    // Close modal
+    document.getElementById('close-modal-btn').addEventListener('click', function() {
+      document.getElementById('fund-switch-modal').style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('fund-switch-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
