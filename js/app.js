@@ -20,11 +20,54 @@ function initApp() {
 
 // Update visibility points display
 function updatePointsDisplay() {
-  const points = getVisibilityPoints();
+  // Update wallet points
+  const walletPoints = getWalletPoints();
+  const walletDisplays = document.querySelectorAll('[data-wallet-points]');
+  walletDisplays.forEach(display => {
+    display.textContent = walletPoints;
+  });
+
+  // Update squad points
+  const squadPoints = getSquadPoints();
+  const squadDisplays = document.querySelectorAll('[data-squad-points]');
+  squadDisplays.forEach(display => {
+    display.textContent = squadPoints;
+  });
+
+  // Update donated points
+  const donatedPoints = getDonatedPoints();
+  const donatedDisplays = document.querySelectorAll('[data-donated-points]');
+  donatedDisplays.forEach(display => {
+    display.textContent = donatedPoints;
+  });
+
+  // Update legacy visibility points display (total)
+  const totalPoints = getVisibilityPoints();
   const displays = document.querySelectorAll('[data-visibility-points]');
   displays.forEach(display => {
-    display.textContent = points;
+    display.textContent = totalPoints;
   });
+
+  // Update wallet page displays
+  const walletPageDisplay = document.getElementById('wallet-points');
+  if (walletPageDisplay) {
+    walletPageDisplay.textContent = walletPoints;
+  }
+
+  const squadPageDisplay = document.getElementById('squad-points');
+  if (squadPageDisplay) {
+    squadPageDisplay.textContent = squadPoints;
+  }
+
+  const donatedPageDisplay = document.getElementById('donated-points');
+  if (donatedPageDisplay) {
+    donatedPageDisplay.textContent = donatedPoints;
+  }
+
+  const currentPointsDisplay = document.getElementById('current-points');
+  if (currentPointsDisplay) {
+    currentPointsDisplay.textContent = walletPoints;
+  }
 }
 
 // Bind all launch/play/start buttons

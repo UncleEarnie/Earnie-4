@@ -73,8 +73,19 @@
           </button>
         </div>
         <div class="topbar-right">
-          <div class="visibility-points">
-            <span>Visibility Points: <strong data-visibility-points>150</strong></span>
+          <div class="visibility-points" style="display: flex; gap: var(--space-lg); align-items: center; font-size: 13px;">
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <span style="color: var(--text-secondary);">💰 Wallet:</span>
+              <strong data-wallet-points style="color: var(--accent-primary);">150</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <span style="color: var(--text-secondary);">👥 Squad:</span>
+              <strong data-squad-points style="color: #86efac;">0</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <span style="color: var(--text-secondary);">❤️ Donated:</span>
+              <strong data-donated-points style="color: #fbbf24;">0</strong>
+            </div>
           </div>
           <button class="btn-icon daily-bonus-trigger" aria-label="Daily Bonus Game" title="Match numbers to win Visibility Points!">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -93,21 +104,66 @@
         </header>
 
         <!-- Balance Card -->
-        <div class="card glass-heavy" style="text-align: center; margin-bottom: var(--space-lg); padding: var(--space-2xl);">
-          <p class="text-muted" style="font-size: var(--font-size-sm); margin-bottom: var(--space-sm);">Current Balance</p>
-          <div style="font-size: 64px; font-weight: 800; color: var(--accent-primary); margin-bottom: var(--space-lg);">
-            <span id="current-points">150</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
+          <!-- Wallet Balance -->
+          <div class="card glass-heavy" style="padding: var(--space-2xl); text-align: center; border-left: 4px solid var(--accent-primary);">
+            <p class="text-secondary" style="font-size: var(--font-size-sm); margin-bottom: var(--space-md);">💰 Your Wallet</p>
+            <div style="font-size: 48px; font-weight: 800; color: var(--accent-primary); margin-bottom: var(--space-md);">
+              <span id="wallet-points">150</span>
+            </div>
+            <p class="text-secondary" style="font-size: 13px; margin: 0;">Personal points available to use or donate</p>
           </div>
-          <p class="text-secondary" style="font-size: var(--font-size-base);">Visibility Points</p>
+
+          <!-- Squad Balance -->
+          <div class="card glass-heavy" style="padding: var(--space-2xl); text-align: center; border-left: 4px solid #86efac;">
+            <p class="text-secondary" style="font-size: var(--font-size-sm); margin-bottom: var(--space-md);">👥 Your Squad</p>
+            <div style="font-size: 48px; font-weight: 800; color: #86efac; margin-bottom: var(--space-md);">
+              <span id="squad-points">0</span>
+            </div>
+            <p class="text-secondary" style="font-size: 13px; margin: 0;">Points banked for friends and family</p>
+            <button class="btn btn-secondary" style="margin-top: var(--space-md); width: 100%; font-size: 12px;">Create or Join Squad</button>
+          </div>
+
+          <!-- Donated Balance -->
+          <div class="card glass-heavy" style="padding: var(--space-2xl); text-align: center; border-left: 4px solid #fbbf24;">
+            <p class="text-secondary" style="font-size: var(--font-size-sm); margin-bottom: var(--space-md);">❤️ Donated</p>
+            <div style="font-size: 48px; font-weight: 800; color: #fbbf24; margin-bottom: var(--space-md);">
+              <span id="donated-points">0</span>
+            </div>
+            <p class="text-secondary" style="font-size: 13px; margin: 0;">Points donated to charitable causes</p>
+          </div>
+        </div>
+
+        <!-- Transfer Section -->
+        <div class="card glass-medium" style="margin-bottom: var(--space-2xl);">
+          <h3 style="margin-bottom: var(--space-lg);">Manage Your Points</h3>
           
-          <button class="btn btn-secondary" id="reset-points-btn" style="margin-top: var(--space-lg);">
-            Reset to 150
-          </button>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg);">
+            <!-- Transfer to Squad -->
+            <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md); border: 1px solid rgba(134, 239, 172, 0.2);">
+              <h4 style="margin: 0 0 var(--space-md) 0; color: #86efac;">Transfer to Squad</h4>
+              <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">Bank points for your Squad members to use</p>
+              <div style="display: flex; gap: var(--space-sm);">
+                <input type="number" placeholder="Amount" min="1" style="flex: 1; padding: var(--space-sm); background: var(--glass-dark); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 13px;">
+                <button class="btn btn-secondary" style="white-space: nowrap;">Transfer</button>
+              </div>
+            </div>
+
+            <!-- Donate Points -->
+            <div style="padding: var(--space-lg); background: var(--glass-light); border-radius: var(--radius-md); border: 1px solid rgba(251, 191, 36, 0.2);">
+              <h4 style="margin: 0 0 var(--space-md) 0; color: #fbbf24;">Donate to Causes</h4>
+              <p class="text-secondary" style="font-size: 13px; margin-bottom: var(--space-md);">Support charitable organizations</p>
+              <div style="display: flex; gap: var(--space-sm);">
+                <input type="number" placeholder="Amount" min="1" style="flex: 1; padding: var(--space-sm); background: var(--glass-dark); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 13px;">
+                <button class="btn btn-secondary" style="white-space: nowrap;">Donate</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Activity Log -->
         <div class="card glass-medium">
-          <h3 style="margin-bottom: var(--space-lg);">Activity</h3>
+          <h3 style="margin-bottom: var(--space-lg);">Recent Activity</h3>
           <div id="activity-list">
             <!-- Activity items will be inserted by app.js -->
           </div>
