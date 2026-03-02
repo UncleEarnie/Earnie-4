@@ -1,19 +1,7 @@
 // app.js - Main application logic
 
-// Check authentication status
-function checkAuth() {
-  if (!AUTH.isLoggedIn() && !window.location.pathname.includes('auth.html')) {
-    // Redirect to login
-    window.location.href = 'auth.html';
-    return false;
-  }
-  return true;
-}
-
 // Initialize app
 function initApp() {
-  // Check if user is authenticated
-  if (!checkAuth()) return;
   // Initialize storage defaults
   initDefaults();
   
