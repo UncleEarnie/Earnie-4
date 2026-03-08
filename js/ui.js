@@ -49,6 +49,10 @@ function renderGameCard(game, featured = false) {
     'mortgage-maze': 'Mortgage maze.png',
     'rate-shock-simulator': 'Rate shock simulator.png'
   };
+
+  const gameUnderCardImageMap = {
+    'lifestyle-inflation-trap': 'assets/lifestyle-inflation-trap-cover.svg'
+  };
   
   // Games that are coming soon
   const comingSoonGames = ['long-horizon', 'market-noise-filter', 'retirement-runway', 'budget-reality-check'];
@@ -124,6 +128,14 @@ function renderGameCard(game, featured = false) {
   header.appendChild(title);
   header.appendChild(description);
   header.appendChild(meta);
+
+  if (gameUnderCardImageMap[game.slug]) {
+    const previewImage = document.createElement('img');
+    previewImage.className = 'game-card-inline-image';
+    previewImage.src = gameUnderCardImageMap[game.slug];
+    previewImage.alt = `${game.title} preview`;
+    header.appendChild(previewImage);
+  }
   
   const footer = document.createElement('div');
   footer.className = 'game-card-footer';

@@ -117,9 +117,23 @@ function handleLaunch(event) {
     showSuccess(`Launched: ${gameTitle} (−${pointCost} Visibility Points)`);
     updatePointsDisplay();
     
-    // Special handling for Veil of Risk - open in iframe
+    // Special handling for iframe games
     if (gameSlug === 'veil-of-risk') {
-      openGameIframe('https://rubylabsalpha.com/games/earnie2/');
+      openGameIframeModal('https://rubylabsalpha.com/games/earnie2/', gameTitle);
+    } else if (gameSlug === 'mortgage-maze') {
+      openGameIframeModal('games/mortgage-maze/index.html', gameTitle);
+    } else if (gameSlug === 'lifestyle-inflation-trap') {
+      openGameIframeModal('games/lifestyle-inflation-trap/index.html', gameTitle);
+    } else if (gameSlug === 'market-garden') {
+      openGameIframeModal('market-garden.html', gameTitle);
+    } else if (gameSlug === 'lantern-loot') {
+      openGameIframeModal('lantern-loot.html', gameTitle);
+    } else if (gameSlug === 'earnies-journey') {
+      openGameIframeModal('earnies-journey.html', gameTitle);
+    } else if (gameSlug === 'earnies-journey-v2') {
+      openGameIframeModal('earnies-journey-v2.html', gameTitle);
+    } else if (gameSlug === 'earnie-match-v0') {
+      openGameIframeModal('earnie-match-v0.html', gameTitle);
     } else {
       // For other games, navigate to game detail page
       setTimeout(() => {
@@ -129,77 +143,104 @@ function handleLaunch(event) {
   }
 }
 
-// Open game in fullscreen iframe
-function openGameIframe(url) {
-  // Create modal backdrop
-  const backdrop = document.createElement('div');
-  backdrop.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 9998;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  `;
+// Open game in iframe modal with accessibility and responsive design
+function openGameIframeModal(url, title) {
+  // Lock body scroll
+  document.body.style.overflow = 'hidden';
   
-  // Create close button
-  const closeBtn = document.createElement('button');
-  closeBtn.innerHTML = '✕';
-  closeBtn.style.cssText = `
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
-    font-size: 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 9999;
-    transition: background 0.2s;
-  `;
-  closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255, 255, 255, 0.3)';
-  closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'game-iframe-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-labelledby', 'game-iframe-title');
+  
+  // Create modal
+  const modal = document.createElement('div');
+  modal.className = 'game-iframe-modal';
+  
+  // Create header
+  const header = document.createElement('div');
+  header.className = 'game-iframe-header';
+  
+  const titleElement = document.createElement('h2');
+  titleElement.className = 'game-iframe-title';
+  titleElement.id = 'game-iframe-title';
+  titleElement.textContent = title;
+  
+  const closeButton = document.createElement('button');
+  closeButton.className = 'game-iframe-close';
+  closeButton.innerHTML = '✕';
+  closeButton.setAttribute('aria-label', 'Close game');
+  closeButton.addEventListener('click', closeModal);
+  
+  header.appendChild(titleElement);
+  header.appendChild(closeButton);
+  
+  // Create iframe container
+  const iframeContainer = document.createElement('div');
+  iframeContainer.className = 'game-iframe-content';
   
   // Create iframe
   const iframe = document.createElement('iframe');
+  iframe.className = 'game-iframe';
   iframe.src = url;
-  iframe.style.cssText = `
-    width: 90%;
-    height: 90%;
-    max-width: 1200px;
-    max-height: 800px;
-    border: none;
-    border-radius: 12px;
-    background: var(--bg-primary);
-  `;
+  iframe.title = title;
+  iframe.setAttribute('loading', 'lazy');
+  iframe.setAttribute('allow', 'clipboard-write');
+  iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
   
-  backdrop.appendChild(closeBtn);
-  backdrop.appendChild(iframe);
+  iframeContainer.appendChild(iframe);
+  modal.appendChild(header);
+  modal.appendChild(iframeContainer);
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
   
-  document.body.appendChild(backdrop);
+  // Close handlers
+  function closeModal() {
+    overlay.remove();
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', handleEscape);
+  }
   
-  // Close on backdrop click or button click
-  closeBtn.addEventListener('click', () => backdrop.remove());
-  backdrop.addEventListener('click', (e) => {
-    if (e.target === backdrop) backdrop.remove();
+  // Close on backdrop click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeModal();
+    }
   });
   
   // Close on Escape key
-  const handleEscape = (e) => {
+  function handleEscape(e) {
     if (e.key === 'Escape') {
-      backdrop.remove();
-      document.removeEventListener('keydown', handleEscape);
+      closeModal();
     }
-  };
+  }
   document.addEventListener('keydown', handleEscape);
+  
+  // Focus trap (basic implementation)
+  const focusableElements = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+  
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    }
+  });
+  
+  // Focus close button initially
+  setTimeout(() => closeButton.focus(), 100);
 }
 
 // Initialize page-specific features
@@ -764,6 +805,61 @@ function initProfilePage() {
     showSuccess('Profile saved');
   });
 }
+
+// PostMessage listener for iframe games
+window.addEventListener('message', (event) => {
+  // Validate message structure
+  if (!event.data || typeof event.data !== 'object') return;
+  
+  const { type, game, height, score, visibilityIndex, band } = event.data;
+  
+  // Handle generic height adjustment messages
+  if (type === 'EARNIE_GAME_HEIGHT' && typeof height === 'number' && game) {
+    const iframe = document.querySelector(`.game-iframe[src*="${game}"]`);
+    if (iframe && height > 0) {
+      // Adjust iframe height dynamically (optional enhancement)
+      // For now, we use fixed 85vh which works well
+    }
+  }
+  
+  // Handle legacy Mortgage Maze height messages
+  if (type === 'MORTGAGE_MAZE_HEIGHT' && typeof height === 'number') {
+    const iframe = document.querySelector('.game-iframe[src*="mortgage-maze"]');
+    if (iframe && height > 0) {
+      // Adjust iframe height dynamically (optional enhancement)
+      // For now, we use fixed 85vh which works well
+    }
+  }
+  
+  // Handle generic game completion messages
+  if (type === 'EARNIE_GAME_COMPLETE' && typeof visibilityIndex === 'number' && game) {
+    const bonusPoints = Math.floor(visibilityIndex / 10);
+    if (bonusPoints > 0) {
+      addPoints(bonusPoints, `${game} completion bonus`);
+      updatePointsDisplay();
+      
+      // Show success after a delay (so user can see results first)
+      setTimeout(() => {
+        const bandEmoji = band === 'visible' ? '🌟' : band === 'partial' ? '⭐' : '✨';
+        showSuccess(`${bandEmoji} Earned ${bonusPoints} bonus Visibility Points!`);
+      }, 1000);
+    }
+  }
+  
+  // Handle legacy Mortgage Maze completion messages
+  if (type === 'MORTGAGE_MAZE_COMPLETE' && typeof score === 'number') {
+    const bonusPoints = Math.floor(score / 10);
+    if (bonusPoints > 0) {
+      addPoints(bonusPoints, 'Mortgage Maze completion bonus');
+      updatePointsDisplay();
+      
+      // Show success after a delay (so user can see results first)
+      setTimeout(() => {
+        showSuccess(`Earned ${bonusPoints} bonus Visibility Points!`);
+      }, 1000);
+    }
+  }
+});
 
 // Initialize on DOM ready
 if (document.readyState === 'loading') {

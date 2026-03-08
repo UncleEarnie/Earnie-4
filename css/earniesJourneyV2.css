@@ -1,0 +1,588 @@
+/**
+ * Earnie's Journey V2 - Detailed Narrative Design
+ * Rich, text-focused, story-driven interface
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+  font-family: 'Georgia', 'Garamond', serif;
+  min-height: 100vh;
+}
+
+#earnies-journey-v2-root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#ej2-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Georgia', 'Garamond', serif;
+  color: #2c3e50;
+  background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+  min-height: 100vh;
+}
+
+/* Path Selection */
+.ej2-path-select-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.ej2-path-select-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.ej2-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.ej2-path-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ej2-path-card {
+  background: white;
+  border: 2px solid #34495e;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ej2-path-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  border-color: #3498db;
+}
+
+.ej2-path-card h3 {
+  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+}
+
+.ej2-path-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.ej2-path-narrative {
+  font-style: italic;
+  color: #7f8c8d;
+  padding: 15px;
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  margin: 15px 0;
+}
+
+.ej2-path-goal {
+  background: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.ej2-btn {
+  padding: 14px 28px;
+  border: 2px solid #34495e;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.ej2-btn-primary {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.ej2-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(52, 152, 219, 0.3);
+}
+
+.ej2-btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+
+.ej2-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Game Screen */
+.ej2-screen {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ej2-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.ej2-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.ej2-path-name {
+  margin: 5px 0 0 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.ej2-time-display {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* Meters */
+.ej2-meters-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.ej2-meters-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #34495e;
+  padding-bottom: 10px;
+}
+
+.ej2-meters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.ej2-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ej2-meter label {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.ej2-meter-bar {
+  height: 28px;
+  background: #ecf0f1;
+  border-radius: 8px;
+  border: 2px solid #bdc3c7;
+  overflow: hidden;
+  position: relative;
+}
+
+.ej2-meter-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.ej2-meter span {
+  text-align: center;
+  font-weight: 700;
+  color: #34495e;
+}
+
+/* World Map */
+.ej2-world-map {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.ej2-world-map h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #34495e;
+  padding-bottom: 10px;
+}
+
+.ej2-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.ej2-location {
+  background: white;
+  border: 2px solid #bdc3c7;
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.ej2-location:hover {
+  border-color: #3498db;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.ej2-location h4 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 8px;
+}
+
+.ej2-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ej2-action-button {
+  background: white;
+  border: 2px solid #ecf0f1;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-family: inherit;
+}
+
+.ej2-action-button:hover:not(:disabled) {
+  border-color: #3498db;
+  background: #ecf0f1;
+  transform: translateX(4px);
+}
+
+.ej2-action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ej2-action-title {
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.ej2-action-time {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 3px;
+}
+
+/* Modals */
+.ej2-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.ej2-modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  animation: modal-enter 0.3s ease;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Action Detail Modal */
+.ej2-action-detail {
+  max-width: 650px;
+}
+
+.ej2-detail-header {
+  border-bottom: 3px solid #34495e;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.ej2-detail-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.ej2-location-tag {
+  margin: 0;
+  display: inline-block;
+  background: #ecf0f1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+}
+
+.ej2-detail-body {
+  margin: 20px 0;
+}
+
+.ej2-section {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+}
+
+.ej2-section h3 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.ej2-narrative {
+  margin: 0;
+  line-height: 1.7;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.ej2-meter-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.ej2-meter-delta {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #ecf0f1;
+}
+
+.ej2-meter-delta span:first-child {
+  font-weight: 700;
+  color: #34495e;
+}
+
+.ej2-before-after {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 3px;
+}
+
+.ej2-ongoing-warning {
+  border-left-color: #f39c12;
+  background: #fffdf0;
+}
+
+.ej2-time-cost {
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #34495e;
+  margin: 20px 0;
+}
+
+.ej2-detail-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.ej2-detail-footer .ej2-btn {
+  flex: 1;
+  margin: 0;
+}
+
+/* Event Detail Modal */
+.ej2-event-detail {
+  max-width: 650px;
+}
+
+.ej2-event-header {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.ej2-event-header.positive {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.ej2-event-header.negative {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.ej2-event-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.ej2-event-description {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+}
+
+.ej2-event-narrative {
+  color: #7f8c8d;
+  margin: 0 0 20px 0;
+}
+
+.ej2-event-options h3 {
+  color: #2c3e50;
+  margin: 20px 0 15px 0;
+  border-bottom: 2px solid #34495e;
+  padding-bottom: 10px;
+}
+
+.ej2-event-option-btn {
+  background: white;
+  border: 2px solid #bdc3c7;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  font-family: inherit;
+  width: 100%;
+}
+
+.ej2-event-option-btn:hover {
+  border-color: #3498db;
+  background: #ecf0f1;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.ej2-option-header {
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.ej2-option-narrative {
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.ej2-option-effects {
+  color: #34495e;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Outcome Modal */
+.ej2-outcome h2 {
+  font-size: 2rem;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.ej2-outcome-message {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 0 30px 0;
+  color: #555;
+}
+
+.ej2-final-metrics {
+  margin: 30px 0;
+}
+
+/* Controls */
+.ej2-controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.ej2-controls .ej2-btn {
+  width: auto;
+  min-width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ej2-path-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .ej2-locations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ej2-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .ej2-header-right {
+    width: 100%;
+  }
+  
+  .ej2-modal-content {
+    padding: 20px;
+  }
+}

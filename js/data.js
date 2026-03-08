@@ -34,6 +34,81 @@ const GAMES_LIBRARY = [
     ]
   },
   {
+    slug: 'market-garden',
+    title: 'Market Garden V0',
+    subtitle: 'Manage your garden through seasons',
+    description: 'A seasonal garden simulation where you make strategic decisions about planting, watering, and harvesting. Learn how weather and pests affect outcomes and discover the balance between growth and stability.',
+    ctaLabel: 'Play',
+    category: 'Decision Making',
+    estimatedMinutes: 20,
+    difficulty: 'Medium',
+    tags: ['Strategy', 'Simulation', 'Planning', 'Decision Making'],
+    featured: true,
+    overviewBullets: [
+      'Manage a 6-bed garden across 12 weeks of seasonal changes',
+      'Balance growth with stability as you navigate weather and pests',
+      'Choose from 5 plant types, each with unique characteristics',
+      'Make tactical weekly decisions: water, fertilize, control pests, and more',
+      'Track your reputation and harvest yields for a final reputation score'
+    ],
+    learnings: [
+      {
+        title: 'Planning Under Uncertainty',
+        description: 'Learn to make decisions when outcomes depend on unpredictable factors like weather and garden events.'
+      },
+      {
+        title: 'Resource Trade-offs',
+        description: 'Discover how limited actions each week force you to prioritize and make strategic choices.'
+      },
+      {
+        title: 'Long-term vs Short-term',
+        description: 'Experience the tension between immediate gains (harvesting) and long-term health (plant development).'
+      },
+      {
+        title: 'Resilience and Adaptation',
+        description: 'Learn how good preparation and smart replanting can help you weather unexpected challenges.'
+      }
+    ]
+  },
+  {
+    slug: 'lantern-loot',
+    title: 'Lantern & Loot V0',
+    subtitle: 'A roguelite dungeon crawler',
+    description: 'Descend five floors of a mysterious dungeon using just your lantern and wits. Manage your health, stamina, and light while making strategic decisions about when to scout ahead, take risks, or play it safe. Every run is different.',
+    ctaLabel: 'Play',
+    category: 'Decision Making',
+    estimatedMinutes: 15,
+    difficulty: 'Medium',
+    tags: ['Strategy', 'Dungeon Crawler', 'Resource Management', 'Roguelite'],
+    featured: true,
+    overviewBullets: [
+      'Navigate 5 floors with 6 rooms each in a procedurally varied dungeon',
+      'Balance resources: health, stamina, light, and loot',
+      'Choose from 6 actions: Explore, Sneak, Loot, Rest, Scan, or Backtrack',
+      'Face traps, enemies, fountains, and treasure with hidden or revealed dangers',
+      'Encounter different challenges based on how much light you have',
+      'Unlock upgrades at the end of each floor to improve your chances'
+    ],
+    learnings: [
+      {
+        title: 'Resource Management Under Pressure',
+        description: 'Learn to balance multiple limited resources (health, stamina, light) while pursuing conflicting objectives (survival vs. loot).'
+      },
+      {
+        title: 'Information-Seeking vs. Action',
+        description: 'Experience the trade-off between gathering information (Scan action) and moving quickly, under uncertainty.'
+      },
+      {
+        title: 'Risk Appetite and Stress Response',
+        description: 'Observe your own behavior when facing surprises (traps, ambushes, fountain saves) and whether you become cautious or aggressive afterward.'
+      },
+      {
+        title: 'Long-term Planning in Uncertain Environments',
+        description: 'Develop strategies for upgrades and resource recovery that carry forward across multiple encounters.'
+      }
+    ]
+  },
+  {
     slug: 'kiwisaver-checkin',
     title: 'KiwiSaver Check-in',
     subtitle: 'Review your retirement savings strategy',
@@ -92,6 +167,152 @@ const GAMES_LIBRARY = [
       {
         title: 'Repayment Strategies',
         description: 'Discover how different repayment approaches can save you thousands in interest over the life of your loan.'
+      }
+    ]
+  },
+  {
+    slug: 'lifestyle-inflation-trap',
+    title: 'Lifestyle Inflation Trap',
+    subtitle: 'Will income gains become freedom or overhead?',
+    description: 'Navigate 10-12 chapters of financial decisions as your income grows. Will raises translate to freedom, or just more recurring expenses? Experience the challenge of lifestyle inflation.',
+    ctaLabel: 'Play',
+    category: 'Personal Finance',
+    estimatedMinutes: 15,
+    difficulty: 'Medium',
+    tags: ['Budgeting', 'Lifestyle', 'Decision Making'],
+    featured: true,
+    overviewBullets: [
+      'Make 10-12 pivotal financial decisions across 3 chapters',
+      'Experience 2 shock events and 1 raise moment',
+      'Set autopilot savings policies that run automatically',
+      'Track runway, fixed cost ratio, and freedom score in real-time'
+    ],
+    learnings: [
+      {
+        title: 'Lifestyle Inflation Awareness',
+        description: 'Understand how small recurring upgrades compound to erode financial freedom over time.'
+      },
+      {
+        title: 'Autopilot Discipline',
+        description: 'Learn to automate savings decisions so raises build wealth before lifestyle creeps up.'
+      },
+      {
+        title: 'Shock Resilience',
+        description: 'Experience how runway and fixed costs determine your ability to weather financial surprises.'
+      }
+    ]
+  },
+  {
+    slug: 'earnies-journey',
+    title: "Earnie's Journey V0",
+    subtitle: '12 weeks of life-building decisions',
+    description: 'Navigate 12 weeks balancing momentum, stability, options, and joy. Each action costs time, builds or erodes your meters, and shapes your path. Weekend events curveball you. Choose clarity tools at the Planner to forecast, buff actions, or blunt shocks. Will you hit your path goal?',
+    ctaLabel: 'Play',
+    category: 'Decision Making',
+    estimatedMinutes: 20,
+    difficulty: 'Medium',
+    tags: ['Strategy', 'Life Simulation', 'Resource Management', 'Behavioral Insights'],
+    featured: true,
+    overviewBullets: [
+      'Balance 4 meters (Momentum, Stability, Options, Joy) across 12 weeks',
+      'Choose from 3 paths: Builder, Explorer, or Closer - each with unique win conditions',
+      'Manage 100 time units per week across 24 different action cards',
+      'Use clarity tools at the Planner to forecast events, buff actions, and reduce downside',
+      'Face weekend events that can help or hurt based on your choices',
+      'Track all decisions with telemetry and export weekly CSV data'
+    ],
+    learnings: [
+      {
+        title: 'Multi-Constraint Decision Making',
+        description: 'Learn to balance competing priorities (momentum vs stability, options vs joy) under time pressure across multiple weeks.'
+      },
+      {
+        title: 'Planning vs Doing Trade-offs',
+        description: 'Experience the tension between using clarity tools (information gathering) and taking actions that move meters directly.'
+      },
+      {
+        title: 'Ongoing Effects and Consequences',
+        description: 'Understand how certain decisions create multi-week consequences (good or bad) that compound over time.'
+      },
+      {
+        title: 'Stress Response Under Uncertainty',
+        description: 'Observe your own behavioral patterns when facing weekend shocks: do you seek planning tools or double down on immediate gains?'
+      }
+    ]
+  },
+  {
+    slug: 'earnies-journey-v2',
+    title: "Earnie's Journey V2",
+    subtitle: 'The Detailed Adventure - Rich narratives and choices',
+    description: 'Experience Earnie\'s story with rich, detailed narratives. Before each action, discover what happens, the world context, and real consequences. Weekend events offer meaningful choices. Same core mechanics as V0, but deeper storytelling and character development.',
+    ctaLabel: 'Play',
+    category: 'Decision Making',
+    estimatedMinutes: 25,
+    difficulty: 'Medium',
+    tags: ['Strategy', 'Life Simulation', 'Narrative', 'Character Development', 'Consequences'],
+    featured: true,
+    overviewBullets: [
+      'Same 12-week structure as V0 with enhanced narrative depth',
+      'Detailed action pop-ups show what happens, world context, and real consequences',
+      'Choose from 3 character paths: Builder, Explorer, or Closer with personality narratives',
+      'Rich event narratives with meaningful decision points',
+      'Explore a detailed world map with 6 unique locations',
+      'Experience how choices create emotional and practical consequences'
+    ],
+    learnings: [
+      {
+        title: 'Consequence Awareness',
+        description: 'Understand the full impact of your decisions before committing, considering emotional, practical, and long-term effects.'
+      },
+      {
+        title: 'Character-Driven Decisions',
+        description: 'Explore how different personality archetypes (Builder, Explorer, Closer) make distinct choices and achieve different outcomes.'
+      },
+      {
+        title: 'Narrative Understanding of Meters',
+        description: 'See meters not as abstract numbers but as emotional states: momentum as forward drive, stability as security, options as possibility, joy as fulfillment.'
+      },
+      {
+        title: 'World-Building and Context',
+        description: 'Experience how location context and atmosphere influence decision-making and character development.'
+      },
+      {
+        title: 'Multi-Layered Storytelling',
+        description: 'Understand narrative structure where actions have immediate effects, ongoing consequences, and cumulative impacts on your character\'s journey.'
+      }
+    ]
+  },
+  {
+    slug: 'earnie-match-v0',
+    title: 'Earnie Match V0',
+    subtitle: 'Match-3 with tokens, tools, and streak rewards',
+    description: 'Play a fast 8x8 match-3 challenge with level objectives, limited moves, and Earnie bank tools. Build tokens from strong matches, spend them on tactical boosts, and manage your streak for rewards.',
+    ctaLabel: 'Play',
+    category: 'Decision Making',
+    estimatedMinutes: 12,
+    difficulty: 'Medium',
+    tags: ['Puzzle', 'Match-3', 'Strategy', 'Resource Management'],
+    featured: true,
+    overviewBullets: [
+      '8x8 board with cascades, striped specials, and bomb specials',
+      'Beat score or color-collection objectives within move limits',
+      'Earn and spend Bank Tokens on Add Move, Convert, Shuffle, and Stabilise',
+      'Use Hint and one-time Undo with move costs',
+      'Build streaks for bonus tokens and free striped tile rewards',
+      'Export telemetry JSON and level summary CSV after runs'
+    ],
+    learnings: [
+      {
+        title: 'Tactical Trade-offs',
+        description: 'Learn when to spend scarce tokens now versus saving them for endgame pressure.'
+      },
+      {
+        title: 'Move Economy',
+        description: 'Experience how each move has opportunity cost when objectives are strict.'
+      },
+      {
+        title: 'Streak Discipline',
+        description: 'See how consistent objective-focused play creates compounding rewards.'
       }
     ]
   },

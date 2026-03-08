@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lifestyle Inflation Trap | Uncle Earnie</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="landingScreen" class="screen visible">
+    <div class="container">
+      <div class="game-logo">🦒</div>
+      <h1>Lifestyle Inflation Trap</h1>
+      <p class="subtitle">Run as Earnie, dodge money traps, and choose your path through 10–12 gameplay gates.</p>
+      <button id="startGameBtn" class="btn-primary">Play</button>
+    </div>
+  </div>
+
+  <div id="setupScreen" class="screen">
+    <div class="container">
+      <h2>Pick a run</h2>
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="quick">
+          <strong>Quick Run</strong>
+          <span>10 steps · ~10 min</span>
+        </button>
+        <button class="mode-card" data-mode="deep">
+          <strong>Deep Run</strong>
+          <span>12 steps · ~15 min</span>
+        </button>
+      </div>
+      <label class="toggle"><input id="reducedMotionToggle" type="checkbox" /> Reduced motion</label>
+    </div>
+  </div>
+
+  <div id="gameScreen" class="screen">
+    <header class="game-hud">
+      <div class="hud-left">
+        <div class="hud-item">👁️ <span id="hudVisibility" class="hud-value">50</span></div>
+        <div class="hud-item">📅 <span id="hudRunway" class="hud-value">0m</span></div>
+        <div class="hud-item">🔒 <span id="hudFixed" class="hud-value">0%</span></div>
+      </div>
+      <div class="hud-right">
+        <div class="hud-item">✨ <span id="hudFreedom" class="hud-value">50</span></div>
+        <div class="hud-item">😊 <span id="hudSatisfaction" class="hud-value">50</span></div>
+      </div>
+    </header>
+
+    <div id="backpackIndicator" class="hidden" aria-live="polite">
+      <span id="backpackIcon">🎒</span>
+      <span id="backpackName">No backpack selected</span>
+    </div>
+
+    <canvas id="gameCanvas" aria-label="Lifestyle Inflation Trap game"></canvas>
+    <div id="floatingTextContainer" class="floating-text-container"></div>
+    <div id="phaseTag" class="phase-tag">Hub</div>
+
+    <div id="gateOverlay" class="gate-overlay hidden" role="dialog" aria-modal="true">
+      <div class="gate-content">
+        <h2 id="gateTitle"></h2>
+        <p id="gateDescription"></p>
+        <div id="gateLanes" class="gate-lanes"></div>
+      </div>
+    </div>
+
+    <div id="bossOverlay" class="boss-overlay hidden" role="dialog" aria-modal="true">
+      <div class="boss-content">
+        <h2 id="bossTitle"></h2>
+        <p id="bossDescription"></p>
+        <div id="bossShields" class="boss-shields"></div>
+      </div>
+    </div>
+
+    <div class="mobile-controls" aria-hidden="true">
+      <button id="leftBtn">◀</button>
+      <button id="jumpBtn">⤒</button>
+      <button id="rightBtn">▶</button>
+    </div>
+  </div>
+
+  <div id="resultsScreen" class="screen">
+    <div class="container">
+      <h1>Run Complete</h1>
+      <div class="visibility-badge-large">
+        <div id="finalScore" class="badge-score">0</div>
+        <div id="finalBand" class="badge-band">Partial</div>
+        <small>Visibility Index</small>
+        <div id="finalVision" class="badge-vision">Hazy</div>
+      </div>
+
+      <div class="results-grid">
+        <section class="results-card"><h3>Highlight reel</h3><ul id="highlightsList"></ul></section>
+        <section class="results-card"><h3>Snapshot</h3><ul id="snapshotList"></ul></section>
+        <section class="results-card"><h3>Biggest leaks</h3><ol id="leaksList"></ol></section>
+        <section class="results-card"><h3>Why this score?</h3><ul id="insightsList"></ul></section>
+      </div>
+
+      <div class="results-actions">
+        <button id="copySummaryBtn" class="btn-secondary">Copy Summary</button>
+        <button id="replayBtn" class="btn-primary">Replay with different backpack</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

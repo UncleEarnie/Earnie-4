@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnie's Journey V0 - Financial Life Simulation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/earniesJourneyV0.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💰 Earnie</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="games.html" class="nav-link">Games</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="earnies-journey-root"></div>
+
+    <!-- Load game modules in correct order -->
+    <script src="js/earniesJourneyV0/rng.js"></script>
+    <script src="js/earniesJourneyV0/constants.js"></script>
+    <script src="js/earniesJourneyV0/engine.js"></script>
+    <script src="js/earniesJourneyV0/telemetry.js"></script>
+    <script src="js/earniesJourneyV0/csv.js"></script>
+    <script src="js/earniesJourneyV0/ui.js"></script>
+</body>
+</html>

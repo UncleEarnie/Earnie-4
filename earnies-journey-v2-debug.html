@@ -1,0 +1,80 @@
+<!-- V2 Game Debugging HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2 Debug</title>
+    <link rel="stylesheet" href="css/earniesJourneyV2.css">
+    <style>
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: #0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+            z-index: 999999;
+        }
+    </style>
+</head>
+<body>
+    <div id="earnies-journey-v2-root"></div>
+    <div class="debug-info">
+        <div>Modules Loading...</div>
+        <div id="debug-status"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/earniesJourneyV2/rng.js"></script>
+    <script>
+        document.getElementById('debug-status').innerHTML += '<div>✓ RNG loaded</div>';
+    </script>
+    
+    <script src="js/earniesJourneyV2/constants.js"></script>
+    <script>
+        document.getElementById('debug-status').innerHTML += '<div>✓ Constants loaded</div>';
+        document.getElementById('debug-status').innerHTML += `<div>- GAME_CONFIG_V2: ${typeof GAME_CONFIG_V2}</div>`;
+        document.getElementById('debug-status').innerHTML += `<div>- PATHS_V2: ${typeof PATHS_V2}</div>`;
+    </script>
+    
+    <script src="js/earniesJourneyV2/engine.js"></script>
+    <script>
+        document.getElementById('debug-status').innerHTML += '<div>✓ Engine loaded</div>';
+    </script>
+    
+    <script src="js/earniesJourneyV2/telemetry.js"></script>
+    <script>
+        document.getElementById('debug-status').innerHTML += '<div>✓ Telemetry loaded</div>';
+    </script>
+    
+    <script src="js/earniesJourneyV2/ui.js"></script>
+    <script>
+        document.getElementById('debug-status').innerHTML += '<div>✓ UI loaded</div>';
+        document.getElementById('debug-status').innerHTML += `<div>- initializeUIV2: ${typeof initializeUIV2}</div>`;
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('debug-status').innerHTML += '<div>✓ DOM ready</div>';
+            const root = document.getElementById('earnies-journey-v2-root');
+            document.getElementById('debug-status').innerHTML += `<div>- Root found: ${!!root}</div>`;
+            
+            if (root && typeof initializeUIV2 === 'function') {
+                document.getElementById('debug-status').innerHTML += '<div>✓ Initializing...</div>';
+                initializeUIV2(root);
+                document.getElementById('debug-status').innerHTML += '<div>✓ Initialized!</div>';
+            } else {
+                document.getElementById('debug-status').innerHTML += '<div>✗ Init failed</div>';
+                console.error('Failed to initialize V2 UI');
+                console.log('Root:', root);
+                console.log('initializeUIV2:', typeof initializeUIV2);
+            }
+        });
+    </script>
+</body>
+</html>

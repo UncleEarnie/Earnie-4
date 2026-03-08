@@ -687,8 +687,9 @@ button {
 
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-md);
+  align-items: stretch;
 }
 
 .game-card {
@@ -699,7 +700,7 @@ button {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  min-height: 220px;
+  height: 360px;
 }
 
 .game-card::before {
@@ -722,13 +723,15 @@ button {
 }
 
 .game-card.featured {
-  grid-column: span 2;
-  min-height: 280px;
+  grid-column: span 1;
+  min-height: 0;
   background: linear-gradient(135deg, rgba(134, 239, 172, 0.05) 0%, rgba(16, 24, 20, 0.3) 100%);
 }
 
 .game-card-header {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-title {
@@ -742,6 +745,20 @@ button {
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
   line-height: 1.6;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.game-card-inline-image {
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  margin-top: auto;
 }
 
 .game-meta {
@@ -987,6 +1004,10 @@ button {
   .hero-visual {
     order: -1;
     margin-bottom: var(--space-lg);
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   
   .game-card.featured {
@@ -1377,4 +1398,118 @@ button {
   font-size: 13px;
   margin: 0;
   color: var(--text-secondary);
+}
+
+/* ========================================
+   GAME IFRAME MODAL
+   ======================================== */
+
+.game-iframe-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  animation: fadeInOverlay 0.3s ease-out;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.game-iframe-modal {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 85vh;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideInModal 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.game-iframe-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--glass-heavy);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.game-iframe-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.game-iframe-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--glass-medium);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.game-iframe-close:hover {
+  background: var(--danger);
+  transform: scale(1.05);
+}
+
+.game-iframe-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .game-iframe-overlay {
+    padding: 0;
+  }
+  
+  .game-iframe-modal {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
 }

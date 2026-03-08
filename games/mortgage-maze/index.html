@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Maze - Uncle Earnie</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Landing Screen -->
+    <div id="landing-screen" class="screen active">
+      <div class="screen-content">
+        <h1 class="game-title">🏠 Mortgage Maze</h1>
+        <p class="game-subtitle">Navigate home loan decisions in a fog of hidden costs and rate risks</p>
+        
+        <div class="setup-panel">
+          <div class="setup-section">
+            <h3>Choose Your Persona</h3>
+            <div class="radio-group">
+              <label class="radio-card">
+                <input type="radio" name="persona" value="firstHome" checked>
+                <span class="radio-label">
+                  <strong>First Home Buyer</strong>
+                  <small>Young, small deposit, high stress</small>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="persona" value="refinancer">
+                <span class="radio-label">
+                  <strong>Refinancer</strong>
+                  <small>Established, seeking better rates</small>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="persona" value="investor">
+                <span class="radio-label">
+                  <strong>Property Investor</strong>
+                  <small>Multiple properties, cashflow focus</small>
+                </span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="setup-section">
+            <h3>Deposit Band</h3>
+            <div class="radio-group horizontal">
+              <label class="radio-card">
+                <input type="radio" name="deposit" value="low" checked>
+                <span class="radio-label"><strong>5-10%</strong></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="deposit" value="medium">
+                <span class="radio-label"><strong>15-20%</strong></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="deposit" value="high">
+                <span class="radio-label"><strong>25%+</strong></span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="mode-buttons">
+            <button id="quick-mode-btn" class="btn btn-secondary">
+              <strong>Quick Mode</strong>
+              <small>5-7 min, 1-2 shocks</small>
+            </button>
+            <button id="deep-mode-btn" class="btn btn-primary">
+              <strong>Deep Mode</strong>
+              <small>12-15 min, 3+ shocks</small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <div class="game-layout">
+        <div class="maze-column">
+          <div class="stats-bar">
+            <div class="stat">
+              <span class="stat-label">💰 Cashflow</span>
+              <span class="stat-value" id="cashflow-stat">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">📊 Buffer</span>
+              <span class="stat-value" id="buffer-stat">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">🌫️ Risk Fog</span>
+              <span class="stat-value" id="fog-stat">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">🎓 Knowledge</span>
+              <span class="stat-value" id="knowledge-stat">0</span>
+            </div>
+          </div>
+          
+          <div class="maze-container" id="maze-container"></div>
+          
+          <div class="timeline" id="timeline">
+            <div class="timeline-label">Journey Timeline</div>
+            <div class="timeline-items" id="timeline-items"></div>
+          </div>
+        </div>
+        
+        <div class="decision-column">
+          <div class="room-panel" id="room-panel">
+            <h2 class="room-title" id="room-title">Room Title</h2>
+            <p class="room-description" id="room-description">Room description goes here.</p>
+            
+            <div class="choices" id="choices"></div>
+            
+            <div class="hint-box" id="hint-box" style="display: none;">
+              <div class="hint-icon">💡</div>
+              <p class="hint-text" id="hint-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+      <div class="screen-content">
+        <h1 class="results-title">Journey Complete!</h1>
+        
+        <div class="visibility-index-panel">
+          <div class="index-label">Mortgage Visibility Index</div>
+          <div class="index-score" id="final-score">0</div>
+          <div class="index-description" id="score-description">Loading...</div>
+        </div>
+        
+        <div class="subscores">
+          <div class="subscore">
+            <div class="subscore-icon">👁️</div>
+            <div class="subscore-content">
+              <div class="subscore-label">Visible</div>
+              <div class="subscore-value" id="visible-score">0</div>
+            </div>
+          </div>
+          <div class="subscore">
+            <div class="subscore-icon">🌤️</div>
+            <div class="subscore-content">
+              <div class="subscore-label">Partial</div>
+              <div class="subscore-value" id="partial-score">0</div>
+            </div>
+          </div>
+          <div class="subscore">
+            <div class="subscore-icon">🌫️</div>
+            <div class="subscore-content">
+              <div class="subscore-label">Hidden</div>
+              <div class="subscore-value" id="hidden-score">0</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="outcome-snapshot">
+          <h3>Your Outcome Snapshot</h3>
+          <div class="snapshot-grid" id="snapshot-grid"></div>
+        </div>
+        
+        <div class="next-steps">
+          <h3>Next Steps Checklist</h3>
+          <ul id="next-steps-list"></ul>
+        </div>
+        
+        <div class="results-actions">
+          <button id="copy-summary-btn" class="btn btn-secondary">📋 Copy Summary</button>
+          <button id="play-again-btn" class="btn btn-primary">🔄 Play Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
